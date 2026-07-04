@@ -1,11 +1,4 @@
 class Vector2:
-
-    # # Static default Vector2 tuples
-    # up = Vector2(0, 1)
-    # down = Vector2(0, -1)
-    # right = Vector2(1, 0)
-    # left = Vector2(-1, 0)
-
     
     def __init__(self, x: float, y: float):
         self.x = x
@@ -30,3 +23,10 @@ class Vector2:
     def __repr__(self):
         return f"Vector2({self.x}, {self.y})"
 
+
+
+# Static default Vector2 tuples
+Vector2.up = Vector2(0, 1)
+Vector2.down = Vector2(0, -1)
+Vector2.right = Vector2(1, 0)
+Vector2.left = Vector2(-1, 0)
