@@ -1,6 +1,3 @@
-from engine.rendering.renderer import load_sprite_image
-
-
 class Sprite:
     """
     Handles the visual representation of an entity
