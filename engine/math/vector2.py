@@ -15,10 +15,25 @@ class Vector2:
     right: ClassVar[Vector2]
 
 
-    
+    # region Vector2 Dunders
     def __init__(self, x: int | float, y: int | float) -> None:
         self.x = x
         self.y = y
+
+    # Handles how Vector2 is outputted
+    def __repr__(self) -> str:
+        return f"Vector2({self.x}, {self.y})"
+    
+
+    # Handles how Vector2 is compared
+    def __eq__(self, other):
+        if not isinstance(other, Vector2):
+            return NotImplemented
+        return self.x == other.x and self.y == other.y
+    
+    def __hash__(self):
+        return hash((self.x, self.y))
+    #endregion
 
 
     # region Vector2 Operations
@@ -85,6 +100,7 @@ class Vector2:
     #endregion
     
 
+    # region Vector2 Methods
     # Normalizes vectors
     def normalize(self) -> Vector2:
         magnitude = sqrt(self.x ** 2 + self.y ** 2)
@@ -99,22 +115,7 @@ class Vector2:
     # Converts Vector2 to tuple
     def to_tuple(self) -> tuple:
         return (self.x, self.y)
-
-
-
-    # Handles how Vector2 is outputted
-    def __repr__(self) -> str:
-        return f"Vector2({self.x}, {self.y})"
-    
-
-    # Handles how Vector2 is compared
-    def __eq__(self, other):
-        if not isinstance(other, Vector2):
-            return NotImplemented
-        return self.x == other.x and self.y == other.y
-    
-    def __hash__(self):
-        return hash((self.x, self.y))
+    #endregion
 
 
 
