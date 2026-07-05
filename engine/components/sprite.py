@@ -8,5 +8,5 @@ class Sprite:
         image (pygame.Surface): Pygame surface rendering sprite image
     """
 
-    def __init__(self, image_path="assets/sprites/scratch-cat.png"):
-        self.image = load_sprite_image(image_path)
+    def __init__(self, context, image_path="assets/sprites/scratch-cat.png"):
+        self.image = context.assets.load_image(image_path)
