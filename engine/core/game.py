@@ -2,6 +2,7 @@ from engine.rendering.window import Window
 from engine.rendering.renderer import Renderer
 from engine.managers.asset_manager import AssetManager
 from engine.managers.input_manager import InputManager
+from engine.core.context import Context
 
 
 class Game:
@@ -12,7 +13,7 @@ class Game:
         self.assets = AssetManager()
         self.input = InputManager()
 
-        self.context = self.context(self.window, self.renderer, self.assets, self.input)
+        self.context = Context(self.window, self.renderer, self.assets, self.input)
     
 
     def run(self):
