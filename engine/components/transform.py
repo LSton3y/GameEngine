@@ -5,7 +5,7 @@
 
 # Handles appearance and location of an entity
 
-from components.vector2 import Vector2
+from engine.math.vector2 import Vector2
 
 
 
