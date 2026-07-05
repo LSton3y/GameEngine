@@ -83,7 +83,13 @@ class Vector2:
 
     # Handles reverse division
     def __rtruediv__(self, scalar: int | float | Vector2) -> Vector2:
-        return self.__truediv__(scalar)
+        # Reverse division with int or float
+        if isinstance(scalar, (int, float)):
+            if self.x == 0 or self.y == 0:
+                raise ValueError("Cannot divide by zero.")
+            return Vector2(scalar / self.x, scalar / self.y)
+
+        raise ValueError("Value must be either an integer, a float, or a Vector2.")
 
     
 
