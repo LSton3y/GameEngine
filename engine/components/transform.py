@@ -11,7 +11,7 @@ from engine.math.vector2 import Vector2
 
 class Transform:
     
-    def __init__(self) -> None:
-        self.position = Vector2(0, 0)
+    def __init__(self, x, y) -> None:
+        self.position = Vector2(x, y)
         self.rotation = 0
         self.scale = Vector2(0, 0)
