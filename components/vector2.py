@@ -19,8 +19,8 @@ class Vector2:
         self.y = y
 
 
-    # Overides standard "*" tuple multiplication
-    def __mul__(self, scalar: int | float) -> Vector2:
+    # Overrides standard "*" multiplication
+    def __mul__(self, scalar: int | float | Vector2) -> Vector2:
         if isinstance(scalar, (int, float)):
             # Return new Vector2 with multiplied components
             return Vector2(self.x * scalar, self.y * scalar)
@@ -29,13 +29,30 @@ class Vector2:
             # Return new Vector2 with multiplied vectors
             return Vector2(self.x * scalar.x, self.y * scalar.y)
         
-        
         return NotImplemented
 
 
     # Handles reverse multiplication
     def __rmul__(self, scalar: int | float) -> Vector2:
         return self.__mul__(scalar)
+    
+
+
+    # Overrides standard "+" addition
+    def __add__(self, addition: Vector2):
+        if isinstance(addition, Vector2):
+            # Return new Vector2 with result of addition
+            return Vector2(self.x + addition.x, self.y + addition.y)
+
+        return NotImplemented
+    
+
+    # Overrides standard "-" subtraction
+    def __sub__(self, subtraction: Vector2):
+        if isinstance(subtraction, Vector2):
+            # Return new Vector2 with result of subtraction
+            return Vector2(self.x - subtraction.x, self.y - subtraction.y)
+
 
 
     # Handles how Vector2 is outputted
