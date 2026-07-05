@@ -2,6 +2,9 @@ import pygame
 from engine.core.context import Context
 
 class Window:
+    """
+    Handles the attributes of the window
+    """
 
     def __init__(self, width=800, height=600, title="My Engine", fullscreen=False, vsync=True, target_fps=60):
         # Pygame initialisation
