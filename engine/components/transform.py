@@ -8,7 +8,6 @@
 from engine.math.vector2 import Vector2
 
 
-
 class Transform:
     
     def __init__(self, x, y) -> None:
