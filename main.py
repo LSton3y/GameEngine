@@ -2,4 +2,4 @@ from components.vector2 import Vector2
 
 
 if __name__ == "__main__":
-    print(Vector2(10, 3.5) / 2)
+    print(Vector2(1, 1).normalize())

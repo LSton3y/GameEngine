@@ -1,4 +1,6 @@
 from typing import ClassVar
+from math import sqrt
+
 
 class Vector2:
 
@@ -19,6 +21,7 @@ class Vector2:
         self.y = y
 
 
+    # region Vector2 Operations
     # Overrides standard "*" multiplication
     def __mul__(self, scalar: int | float | Vector2) -> Vector2:
         if isinstance(scalar, (int, float)):
@@ -55,7 +58,6 @@ class Vector2:
 
     
 
-
     # Overrides standard "+" addition
     def __add__(self, addition: Vector2) -> Vector2:
         if isinstance(addition, Vector2):
@@ -70,6 +72,18 @@ class Vector2:
         if isinstance(subtraction, Vector2):
             # Return new Vector2 with result of subtraction
             return Vector2(self.x - subtraction.x, self.y - subtraction.y)
+    #endregion
+    
+
+    # Normalizes vectors
+    def normalize(self) -> Vector2:
+        magnitude = sqrt(self.x ** 2 + self.y ** 2)
+
+        # Avoid division by zero error
+        if magnitude == 0:
+            return Vector2(0, 0)
+        
+        return Vector2(self.x / magnitude, self.y / magnitude)
 
 
 
