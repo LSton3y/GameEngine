@@ -1,22 +1,23 @@
-# Renderer class
-# Handles the rendering of the screen and sprites
 import pygame
 
 
 class Renderer:
+    """
+    Handles the rendering of the screen
+    """
 
-    def __init__(self, screen):
-        self.screen = screen
+    def __init__(self, window):
+        self.window = window
 
     
     def clear(self, color=(255, 255, 255)):
-        self.screen.fill(color)
+        self.window.fill(color)
 
     
     def draw_sprite(self, transform, sprite):
         rotated = pygame.transform.rotate(sprite.image, -transform.rotation)
         rect = rotated.get_rect(center=transform.position.to_tuple())
-        self.screen.blit(rotated, rect)
+        self.window.blit(rotated, rect)
     
     def update(self):
         pygame.display.flip()
