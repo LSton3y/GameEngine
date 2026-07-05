@@ -25,6 +25,11 @@ class Vector2:
             # Return new Vector2 with multiplied components
             return Vector2(self.x * scalar, self.y * scalar)
         
+        elif isinstance(scalar, Vector2):
+            # Return new Vector2 with multiplied vectors
+            return Vector2(self.x * scalar.x, self.y * scalar.y)
+        
+        
         return NotImplemented
 
 
