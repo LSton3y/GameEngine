@@ -32,7 +32,7 @@ class Vector2:
             # Return new Vector2 with multiplied vectors
             return Vector2(self.x * scalar.x, self.y * scalar.y)
         
-        return NotImplemented
+        return ValueError
 
 
     # Handles reverse multiplication
@@ -50,6 +50,8 @@ class Vector2:
         elif isinstance(scalar, Vector2):
             # Return new Vector2 with divided vectors
             return Vector2(self.x / scalar.x, self.y / scalar.y)
+
+        return ValueError
     
 
     # Handles reverse division
@@ -64,7 +66,7 @@ class Vector2:
             # Return new Vector2 with result of addition
             return Vector2(self.x + addition.x, self.y + addition.y)
 
-        return NotImplemented
+        return ValueError
     
 
     # Overrides standard "-" subtraction
@@ -72,6 +74,8 @@ class Vector2:
         if isinstance(subtraction, Vector2):
             # Return new Vector2 with result of subtraction
             return Vector2(self.x - subtraction.x, self.y - subtraction.y)
+        
+        return ValueError
     #endregion
     
 
