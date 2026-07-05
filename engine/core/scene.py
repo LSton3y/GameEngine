@@ -4,6 +4,9 @@ from engine.components.sprite import Sprite
 
 
 class Scene:
+    """
+    Stores all the entities in a scene
+    """
 
     def __init__(self):
         sprite = Entity()
