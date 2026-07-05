@@ -11,6 +11,8 @@ class Game:
         self.renderer = Renderer(self.window.surface)
         self.assets = AssetManager()
         self.input = InputManager()
+
+        self.context = self.context(self.window, self.renderer, self.assets, self.input)
     
 
     def run(self):
