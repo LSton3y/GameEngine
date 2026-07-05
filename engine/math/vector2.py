@@ -3,6 +3,12 @@ from math import sqrt
 
 
 class Vector2:
+    """
+    Stores an x and y value that can be used for position or scale
+    Attributes:
+        x (int | float): X coordinate value
+        y (int | float): Y coordinate value
+    """
 
     # Type hinting for instance variables
     x: int | float
