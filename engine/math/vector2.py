@@ -43,16 +43,19 @@ class Vector2:
 
     # Overrides standard "/" division
     def __truediv__(self, scalar: int | float | Vector2) -> Vector2:
-        if scalar == 0 or scalar == Vector2(0, 0):
-            raise ValueError("Cannot divide by zero.")
-
         if isinstance(scalar, (int, float)):
-            # Return new Vector2 with divided components
-            return Vector2(self.x / scalar, self.y / scalar)
+            if scalar == 0:
+                raise ValueError("Cannot divide by zero.")
+            else:
+                # Return new Vector2 with divided components
+                return Vector2(self.x / scalar, self.y / scalar)
         
         elif isinstance(scalar, Vector2):
-            # Return new Vector2 with divided vectors
-            return Vector2(self.x / scalar.x, self.y / scalar.y)
+            if scalar.x == 0 or scalar.y == 0:
+                raise ValueError("Cannot divide by zero.")
+            else:
+                # Return new Vector2 with divided vectors
+                return Vector2(self.x / scalar.x, self.y / scalar.y)
 
         raise ValueError("Value must be either an integer, a float, or a Vector2.")
     
