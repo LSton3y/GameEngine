@@ -1,6 +1,9 @@
 import pygame
 
 class InputManager:
+    """
+    Handles user input and window functions (like QUIT, resize, etc.)
+    """
     
     def __init__(self):
         self._keys_down = set()
