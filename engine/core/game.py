@@ -6,6 +6,9 @@ from engine.core.context import Context
 
 
 class Game:
+    """
+    Handles the main game loop and processes
+    """
 
     def __init__(self):
         self.window = Window(800, 600, "My Game")
