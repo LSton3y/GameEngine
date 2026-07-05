@@ -33,13 +33,31 @@ class Vector2:
 
 
     # Handles reverse multiplication
-    def __rmul__(self, scalar: int | float) -> Vector2:
+    def __rmul__(self, scalar: int | float | Vector2) -> Vector2:
         return self.__mul__(scalar)
     
 
 
+    # Overrides standard "/" division
+    def __truediv__(self, scalar: int | float | Vector2) -> Vector2:
+        if isinstance(scalar, (int, float)):
+            # Return new Vector2 with divided components
+            return Vector2(self.x / scalar, self.y / scalar)
+        
+        elif isinstance(scalar, Vector2):
+            # Return new Vector2 with divided vectors
+            return Vector2(self.x / scalar.x, self.y / scalar.y)
+    
+
+    # Handles reverse division
+    def __rtruediv__(self, scalar: int | float | Vector2) -> Vector2:
+        return self.__truediv__(scalar)
+
+    
+
+
     # Overrides standard "+" addition
-    def __add__(self, addition: Vector2):
+    def __add__(self, addition: Vector2) -> Vector2:
         if isinstance(addition, Vector2):
             # Return new Vector2 with result of addition
             return Vector2(self.x + addition.x, self.y + addition.y)
@@ -48,7 +66,7 @@ class Vector2:
     
 
     # Overrides standard "-" subtraction
-    def __sub__(self, subtraction: Vector2):
+    def __sub__(self, subtraction: Vector2) -> Vector2:
         if isinstance(subtraction, Vector2):
             # Return new Vector2 with result of subtraction
             return Vector2(self.x - subtraction.x, self.y - subtraction.y)
