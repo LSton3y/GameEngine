@@ -94,6 +94,11 @@ class Vector2:
             return Vector2(0, 0)
         
         return Vector2(self.x / magnitude, self.y / magnitude)
+    
+
+    # Converts Vector2 to tuple
+    def to_tuple(self) -> tuple:
+        return (self.x, self.y)
 
 
 
