@@ -32,7 +32,7 @@ class Vector2:
             # Return new Vector2 with multiplied vectors
             return Vector2(self.x * scalar.x, self.y * scalar.y)
         
-        return ValueError("Value must be either an integer, a float, or a Vector2.")
+        raise ValueError("Value must be either an integer, a float, or a Vector2.")
 
 
     # Handles reverse multiplication
@@ -51,7 +51,7 @@ class Vector2:
             # Return new Vector2 with divided vectors
             return Vector2(self.x / scalar.x, self.y / scalar.y)
 
-        return ValueError("Value must be either an integer, a float, or a Vector2.")
+        raise ValueError("Value must be either an integer, a float, or a Vector2.")
     
 
     # Handles reverse division
@@ -66,7 +66,7 @@ class Vector2:
             # Return new Vector2 with result of addition
             return Vector2(self.x + addition.x, self.y + addition.y)
 
-        return ValueError("Value must be a Vector2.")
+        raise ValueError("Value must be a Vector2.")
     
 
     # Overrides standard "-" subtraction
@@ -75,7 +75,7 @@ class Vector2:
             # Return new Vector2 with result of subtraction
             return Vector2(self.x - subtraction.x, self.y - subtraction.y)
         
-        return ValueError("Value must be a Vector2.")
+        raise ValueError("Value must be a Vector2.")
     #endregion
     
 
