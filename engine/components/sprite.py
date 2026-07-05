@@ -5,5 +5,6 @@ class Sprite:
         image (pygame.Surface): Pygame surface rendering sprite image
     """
 
-    def __init__(self, context, image_path="assets/sprites/scratch-cat.png"):
-        self.image = context.assets.load_image(image_path)
+    def __init__(self, image_path: str="assets/sprites/scratch-cat.png"):
+        self.image_path = image_path
+        self.image = None # Resolved by render system
