@@ -3,3 +3,6 @@ __pycache__/
 *.pyo
 .env
 venv/
+
+# Counts lines of code in project
+lines.py 
