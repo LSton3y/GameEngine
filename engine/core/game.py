@@ -20,7 +20,7 @@ class Game:
         while self.window.is_open:
             # Update functions
             dt = self.window.tick()
-            # TODO: Add input managing
+            self.input.poll(self.window)
             self.update()
 
             # Render functions
