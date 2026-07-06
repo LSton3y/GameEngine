@@ -18,9 +18,14 @@ class Renderer(metaclass=SingletonMeta):
     
     # Draws sprite
     def draw_sprite(self, transform, sprite):
-        rotated = pygame.transform.rotate(sprite.image, -transform.rotation)
-        rect = rotated.get_rect(center=transform.position.to_tuple())
-        self.window.blit(rotated, rect)
+        # Handles rotation and scale of sprite
+        image = pygame.transform.scale_by(sprite.image, (transform.scale.x, transform.scale.y))
+        image = pygame.transform.rotate(image, -transform.rotation)
+
+        # Handles position of sprite
+        rect = image.get_rect(center=transform.position.to_tuple())
+
+        self.window.blit(image, rect)
     
 
     # Updates display
