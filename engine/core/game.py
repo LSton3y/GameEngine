@@ -7,6 +7,8 @@ from engine.core.scene import Scene
 from engine.components.transform import Transform
 from engine.components.sprite import Sprite
 
+import math, time
+
 
 class Game:
     """
@@ -48,6 +50,8 @@ class Game:
     def update(self, dt):
         for entity in self.scene.entities:
             entity.get_component(Transform).rotation += 50 * dt
+            sine_pos = math.sin(time.time() * 2) * 5
+            entity.get_component(Transform).position.y += sine_pos
 
 
     # Handles rendering
