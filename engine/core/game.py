@@ -3,6 +3,8 @@ from engine.rendering.renderer import Renderer
 from engine.managers.asset_manager import AssetManager
 from engine.managers.input_manager import InputManager
 
+from engine.core.scene import Scene
+
 
 class Game:
     """
@@ -14,6 +16,8 @@ class Game:
         Renderer(Window.instance().surface)
         AssetManager()
         InputManager()
+
+        self.scene = Scene()
     
 
     def run(self):
@@ -22,10 +26,10 @@ class Game:
         input = InputManager.instance()
 
 
-        while self.window.is_open:
+        while window.is_open:
             # Update functions
             dt = window.tick()
-            input.poll(self.window)
+            input.poll(window)
             self.update(dt)
 
             # Render functions
@@ -35,7 +39,7 @@ class Game:
     
 
     # Handles main update loop
-    def update(self):
+    def update(self, dt):
         pass
 
 
