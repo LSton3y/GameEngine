@@ -46,7 +46,8 @@ class Game:
 
     # Handles main update loop
     def update(self, dt):
-        pass
+        for entity in self.scene.entities:
+            entity.get_component(Transform).rotation += 50 * dt
 
 
     # Handles rendering
