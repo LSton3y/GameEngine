@@ -1,6 +1,8 @@
 import pygame
+from engine.core.singleton import SingletonMeta
 
-class Window:
+
+class Window(metaclass=SingletonMeta):
     """
     Handles the attributes of the window
     """
@@ -27,6 +29,9 @@ class Window:
         self.clock = pygame.time.Clock()
         self._running = True
     
+
+    @classmethod
+
 
     @property
     def size(self):

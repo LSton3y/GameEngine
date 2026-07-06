@@ -1,6 +1,8 @@
 import pygame
+from engine.core.singleton import SingletonMeta
 
-class InputManager:
+
+class InputManager(metaclass=SingletonMeta):
     """
     Handles user input and window functions (like QUIT, resize, etc.)
     """

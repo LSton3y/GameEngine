@@ -1,7 +1,8 @@
 import pygame
+from engine.core.singleton import SingletonMeta
 
 
-class Renderer:
+class Renderer(metaclass=SingletonMeta):
     """
     Handles the rendering of the screen
     """

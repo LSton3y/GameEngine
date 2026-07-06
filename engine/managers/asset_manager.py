@@ -1,6 +1,8 @@
 import pygame
+from engine.core.singleton import SingletonMeta
 
-class AssetManager:
+
+class AssetManager(metaclass=SingletonMeta):
 
     def __init__(self):
         self._images = {} # Caches loaded images (path -> Surface)
