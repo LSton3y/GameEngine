@@ -1,6 +1,7 @@
 class Entity:
     """
-    Base object in the game engine.\n
+    Base object in the game engine.
+    
     Can store components like Transform, Sprite, etc.
     """
 
