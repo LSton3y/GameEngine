@@ -2,7 +2,6 @@ from engine.rendering.window import Window
 from engine.rendering.renderer import Renderer
 from engine.managers.asset_manager import AssetManager
 from engine.managers.input_manager import InputManager
-from engine.core.context import Context
 
 
 class Game:
@@ -11,25 +10,28 @@ class Game:
     """
 
     def __init__(self):
-        self.window = Window(800, 600, "My Game")
-        self.renderer = Renderer(self.window.surface)
-        self.assets = AssetManager()
-        self.input = InputManager()
-
-        self.context = Context(self.window, self.renderer, self.assets, self.input)
+        Window(800, 600, "My Game")
+        Renderer(Window.instance().surface)
+        AssetManager()
+        InputManager()
     
 
     def run(self):
+        window = Window.instance()
+        renderer = Renderer.instance()
+        input = InputManager.instance()
+
+
         while self.window.is_open:
             # Update functions
-            dt = self.window.tick()
-            self.input.poll(self.window)
-            self.update()
+            dt = window.tick()
+            input.poll(self.window)
+            self.update(dt)
 
             # Render functions
-            self.renderer.clear()
+            renderer.clear()
             self.render()
-            self.renderer.update()
+            renderer.update()
     
 
     # Handles main update loop
