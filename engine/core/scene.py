@@ -11,7 +11,7 @@ class Scene:
 
     def __init__(self):
         sprite = Entity()
-        sprite.add_component(Transform(Vector2(50, 50)))
+        sprite.add_component(Transform(Vector2(150, 77), 50, Vector2(2, 1)))
         sprite.add_component(Sprite())
 
         self.entities = [sprite]
