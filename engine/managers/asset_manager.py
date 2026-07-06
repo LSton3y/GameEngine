@@ -3,6 +3,9 @@ from engine.core.singleton import SingletonMeta
 
 
 class AssetManager(metaclass=SingletonMeta):
+    """
+    Handles the loading of assets
+    """
 
     def __init__(self):
         self._images = {} # Caches loaded images (path -> Surface)
