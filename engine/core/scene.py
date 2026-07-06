@@ -1,6 +1,7 @@
 from engine.core.entity import Entity
 from engine.components.transform import Transform
 from engine.components.sprite import Sprite
+from engine.math.vector2 import Vector2
 
 
 class Scene:
@@ -10,7 +11,7 @@ class Scene:
 
     def __init__(self):
         sprite = Entity()
-        sprite.add_component(Transform(50, 50))
+        sprite.add_component(Transform(Vector2(50, 50)))
         sprite.add_component(Sprite())
 
         self.entities = [sprite]

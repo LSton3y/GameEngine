@@ -4,6 +4,8 @@ from engine.managers.asset_manager import AssetManager
 from engine.managers.input_manager import InputManager
 
 from engine.core.scene import Scene
+from engine.components.transform import Transform
+from engine.components.sprite import Sprite
 
 
 class Game:
@@ -32,6 +34,10 @@ class Game:
             input.poll(window)
             self.update(dt)
 
+            # Checks if window is stil open after input poll
+            if not window.is_open:
+                break
+
             # Render functions
             renderer.clear()
             self.render()
@@ -45,4 +51,5 @@ class Game:
 
     # Handles rendering
     def render(self):
-        pass
+        for entity in self.scene.entities:
+            Renderer.instance().draw_sprite(entity.get_component(Transform), entity.get_component(Sprite))
