@@ -5,6 +5,7 @@ class Sprite:
     """
     Handles the visual representation of an entity
     Attributes:
+        image_path (str): Stores the image path
         image (pygame.Surface): Pygame surface rendering sprite image
     """
 
