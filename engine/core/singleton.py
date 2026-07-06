@@ -1,17 +1,12 @@
-class Singleton:
+class SingletonMeta(type):
+    _instances = {}
 
-    def __new__(cls, *args, **kwargs):
-        # Create new singleton instance
-        if cls._instance == None:
-            cls._instance = super.__new__(cls)
-        else:
-            return # Return if instance already exists
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super().__call__(*args, **kwargs)
+        return cls._instances[cls]
 
-        return cls._instance
-
-
-    @classmethod
     def instance(cls):
-        if cls._instance is None:
+        if cls not in cls._instances:
             raise RuntimeError(f"{cls.__name__} has not been created yet")
-        return cls._instance
+        return cls._instances[cls]
