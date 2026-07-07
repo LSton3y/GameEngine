@@ -3,10 +3,6 @@ from engine.components.transform import Transform
 from engine.components.sprite import Sprite
 from engine.math.vector2 import Vector2
 
-from engine.systems.input_system import InputSystem
-from engine.systems.physics_system import PhysicsSystem
-from engine.systems.render_system import RenderSystem
-
 
 class Scene:
     """
@@ -22,11 +18,6 @@ class Scene:
         sprite.add_component(Sprite())
 
         self._entities = [sprite]
-        self._systems = [
-            InputSystem(),
-            PhysicsSystem(),
-            RenderSystem()
-        ]
     
 
     # Adds entity to scene
