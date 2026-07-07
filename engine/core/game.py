@@ -4,12 +4,6 @@ from engine.managers.asset_manager import AssetManager
 from engine.managers.input_manager import InputManager
 from engine.managers.scene_manager import SceneManager
 
-from engine.components.transform import Transform
-from engine.components.sprite import Sprite
-from engine.math.vector2 import Vector2
-
-import pygame
-
 
 class Game:
     """
@@ -17,8 +11,10 @@ class Game:
     """
 
     def __init__(self):
+        # Singleton initialisations
         Window(800, 600, "My Game")
-        Renderer(Window.instance().surface)
+        Renderer()
+
         AssetManager()
         InputManager()
         SceneManager()
@@ -27,13 +23,13 @@ class Game:
     def run(self):
         window = Window.instance()
         renderer = Renderer.instance()
-        input = InputManager.instance()
+        input_manager = InputManager.instance()
 
 
         while window.is_open:
             # Update functions
             dt = window.tick()
-            input.poll(window)
+            input_manager.poll(window)
             self.update(dt)
 
             # Checks if window is stil open after input poll
@@ -41,35 +37,17 @@ class Game:
                 break
 
             # Render functions
-            renderer.clear()
+            renderer.clear(window.surface)
             self.render()
             renderer.update()
     
 
+
     # Handles main update loop
     def update(self, dt):
-        for entity in SceneManager.instance().current_scene.entities:
-            input = InputManager.instance()
-            movement = Vector2(0, 0)
-            speed = 5
-
-            if input.is_key_down(pygame.K_a):
-                movement.x -= 1
-            if input.is_key_down(pygame.K_d):
-                movement.x += 1
-            if input.is_key_down(pygame.K_w):
-                movement.y -= 1
-            if input.is_key_down(pygame.K_s):
-                movement.y += 1
-            
-            
-            movement = movement.normalize() * speed
-
-            entity.get_component(Transform).position += movement
+        pass
                 
-
 
     # Handles rendering
     def render(self):
-        for entity in SceneManager.instance().current_scene.entities:
-            Renderer.instance().draw_sprite(entity.get_component(Transform), entity.get_component(Sprite))
+        pass
