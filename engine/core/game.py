@@ -2,8 +2,8 @@ from engine.rendering.window import Window
 from engine.rendering.renderer import Renderer
 from engine.managers.asset_manager import AssetManager
 from engine.managers.input_manager import InputManager
+from engine.managers.scene_manager import SceneManager
 
-from engine.core.scene import Scene
 from engine.components.transform import Transform
 from engine.components.sprite import Sprite
 
@@ -20,8 +20,7 @@ class Game:
         Renderer(Window.instance().surface)
         AssetManager()
         InputManager()
-
-        self.scene = Scene()
+        SceneManager()
     
 
     def run(self):
