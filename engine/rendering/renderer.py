@@ -6,18 +6,14 @@ class Renderer(metaclass=SingletonMeta):
     """
     Handles the rendering of the screen
     """
-
-    def __init__(self, window):
-        self.window = window
-
     
     # Fills screen with color
-    def clear(self, color=(255, 255, 255)):
-        self.window.fill(color)
+    def clear(self, screen, color=(255, 255, 255)):
+        screen.fill(color)
 
     
     # Draws sprite
-    def draw_sprite(self, transform, sprite):
+    def draw_sprite(self, screen, transform, sprite):
         # Handles rotation and scale of sprite
         image = pygame.transform.scale_by(sprite.image, (transform.scale.x, transform.scale.y))
         image = pygame.transform.rotate(image, -transform.rotation)
@@ -25,7 +21,7 @@ class Renderer(metaclass=SingletonMeta):
         # Handles position of sprite
         rect = image.get_rect(center=transform.position.to_tuple())
 
-        self.window.blit(image, rect)
+        screen.blit(image, rect)
     
 
     # Updates display
