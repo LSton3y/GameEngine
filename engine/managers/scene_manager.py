@@ -18,10 +18,10 @@ class SceneManager(metaclass=SingletonMeta):
 
     def change_scene_index(self, index) -> None:
         # If scene index exists, change active scene
-        if index <= len(self._scenes):
+        if index < len(self._scenes):
             self._current_scene = self._scenes[index]
         else:
-            return IndexError
+            return IndexError("Scene index does not exist.")
     
 
     @property
