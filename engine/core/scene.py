@@ -7,6 +7,8 @@ from engine.math.vector2 import Vector2
 class Scene:
     """
     Stores all the entities in a scene
+    Attributes:
+        entities (list): List of the entites
     """
 
     def __init__(self):
