@@ -47,7 +47,7 @@ class Game:
 
     # Handles main update loop
     def update(self, dt):
-        for entity in self.scene.entities:
+        for entity in SceneManager.instance().current_scene.entities:
             entity.get_component(Transform).rotation += 50 * dt
             sine_pos = math.sin(time.time() * 2) * 5
             entity.get_component(Transform).position.y += sine_pos
@@ -55,5 +55,5 @@ class Game:
 
     # Handles rendering
     def render(self):
-        for entity in self.scene.entities:
+        for entity in SceneManager.instance().current_scene.entities:
             Renderer.instance().draw_sprite(entity.get_component(Transform), entity.get_component(Sprite))
