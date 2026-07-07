@@ -10,8 +10,23 @@ class Scene:
     """
 
     def __init__(self):
+        # TODO: Add a parameter that loads entities into the self.entities
         sprite = Entity()
         sprite.add_component(Transform(Vector2(150, 200)))
         sprite.add_component(Sprite())
 
-        self.entities = [sprite]
+        self._entities = [sprite]
+    
+
+    # Adds entity to scene
+    def add_entity(self, entity):
+        self._entities.append(entity)
+    
+    # Removes entity from scene
+    def remove_entity(self, entity):
+        self._entities.remove(entity)
+    
+
+    @property
+    def entities(self):
+        return self._entities
