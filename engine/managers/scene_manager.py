@@ -27,3 +27,7 @@ class SceneManager(metaclass=SingletonMeta):
     @property
     def current_scene(self):
         return self._current_scene
+
+    @property
+    def scenes(self):
+        return self._scenes
