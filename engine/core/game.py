@@ -6,8 +6,9 @@ from engine.managers.scene_manager import SceneManager
 
 from engine.components.transform import Transform
 from engine.components.sprite import Sprite
+from engine.math.vector2 import Vector2
 
-import math, time
+import pygame
 
 
 class Game:
@@ -48,9 +49,24 @@ class Game:
     # Handles main update loop
     def update(self, dt):
         for entity in SceneManager.instance().current_scene.entities:
-            entity.get_component(Transform).rotation += 50 * dt
-            sine_pos = math.sin(time.time() * 2) * 5
-            entity.get_component(Transform).position.y += sine_pos
+            input = InputManager.instance()
+            movement = Vector2(0, 0)
+            speed = 5
+
+            if input.is_key_down(pygame.K_a):
+                movement.x -= 1
+            if input.is_key_down(pygame.K_d):
+                movement.x += 1
+            if input.is_key_down(pygame.K_w):
+                movement.y -= 1
+            if input.is_key_down(pygame.K_s):
+                movement.y += 1
+            
+            
+            movement = movement.normalize() * speed
+
+            entity.get_component(Transform).position += movement
+                
 
 
     # Handles rendering
