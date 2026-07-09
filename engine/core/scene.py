@@ -17,7 +17,7 @@ class Scene:
         sprite = Entity()
         sprite.add_component(Transform(Vector2(150, 200)))
         sprite.add_component(Sprite())
-        sprite.add_component(PlayerMovement())
+        sprite.add_component(PlayerMovement(sprite))
 
         self._entities = [sprite]
     

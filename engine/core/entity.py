@@ -22,6 +22,10 @@ class Entity:
     def get_component(self, component_type):
         return self._components.get(component_type)
 
+    # Gets all components from entity
+    def get_components(self):
+        return self._components.values()
+
     # Checks if component is in entity
     def has_component(self, component_type):
         return component_type in self._components
