@@ -5,5 +5,5 @@ class BaseSystem:
     Enforces the update method
     """
 
-    def update(self):
+    def update(self, dt):
         pass

@@ -19,6 +19,6 @@ class SystemManager:
     
 
     # Runs the update loop for each system
-    def update(self):
+    def update(self,dt):
         for system in self._systems:
-            system.update()
+            system.update(dt)
