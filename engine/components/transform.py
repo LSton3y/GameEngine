@@ -13,4 +13,23 @@ class Transform:
     def __init__(self, position: Vector2 = None, rotation: int | float = 0, scale: Vector2 = None) -> None:
         self.position = Vector2(0, 0) if position is None else position
         self.rotation = rotation
-        self.scale = Vector2(0, 0) if scale is None else scale
+        self.scale = Vector2(1, 1) if scale is None else scale
+    
+
+    # Converts transform properties to dict
+    def to_dict(self):
+        return {
+            "position": self.position.to_tuple(),
+            "rotation": self.position,
+            "scale": self.scale.to_tuple()
+        }
+
+
+    # Returns class with properties inherited from dict
+    @classmethod
+    def from_dict(cls, data):
+        return cls(
+            position=Vector2(*data["position"]),
+            rotation=data["rotation"],
+            scale=Vector2(*data["scale"])
+        )
