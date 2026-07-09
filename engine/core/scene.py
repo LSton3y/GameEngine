@@ -14,7 +14,9 @@ class Scene:
     # Converts scene properties to dict
     def to_dict(self):
         return {
-            "components": [e.to_dict() for e in self._entities]
+            "entities": {
+                "components": [e.to_dict() for e in self._entities]
+            }
         }
 
     # Returns class created from dict properties
