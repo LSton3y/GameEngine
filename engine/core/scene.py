@@ -32,7 +32,3 @@ class Scene:
     @property
     def entities(self):
         return self._entities
-
-    @property
-    def systems(self):
-        return self._systems
