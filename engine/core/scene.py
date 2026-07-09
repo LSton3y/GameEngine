@@ -1,9 +1,4 @@
 from engine.core.entity import Entity
-from engine.components.transform import Transform
-from engine.components.sprite import Sprite
-from engine.math.vector2 import Vector2
-from game.scripts.player_movement import PlayerMovement
-
 
 class Scene:
     """
@@ -15,6 +10,20 @@ class Scene:
     def __init__(self):
         self._entities = []
     
+
+    # Converts scene properties to dict
+    def to_dict(self):
+        return {
+            "components": [e.to_dict() for e in self._entities]
+        }
+
+    # Returns class created from dict properties
+    @classmethod
+    def from_dict(cls, data, registry):
+        scene = cls()
+        scene._entities = [Entity.from_dict(e, registry) for e in data["entities"]]
+        return scene
+
 
     # Adds entity to scene
     def add_entity(self, entity):
