@@ -16,3 +16,9 @@ class SystemManager:
             PhysicsSystem(),
             RenderSystem()
         ]
+    
+
+    # Runs the update loop for each system
+    def update(self):
+        for system in self._systems:
+            system.update()
