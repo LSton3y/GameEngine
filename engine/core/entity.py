@@ -1,3 +1,5 @@
+from engine.components.script import Script
+
 class Entity:
     """
     Base object in the game engine.
@@ -28,7 +30,13 @@ class Entity:
 
         for name, component_data in data["components"].items():
             component_class = registry[name]
-            component = component_class.from_dict(component_data)
+
+            # Different parameters if component is Script
+            if issubclass(component_class, Script):
+                component = component_class.from_dict(component_data, entity)
+            else:
+                component = component_class.from_dict(component_data)
+                
             entity.add_component(component)
 
         return entity
