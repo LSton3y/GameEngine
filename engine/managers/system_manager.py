@@ -19,8 +19,14 @@ class SystemManager:
             RenderSystem()
         ]
     
+    
+    # Runs on the first frame
+    def start(self):
+        for system in self._systems:
+            system.start()
+
 
     # Runs the update loop for each system
-    def update(self,dt):
+    def update(self, dt):
         for system in self._systems:
             system.update(dt)

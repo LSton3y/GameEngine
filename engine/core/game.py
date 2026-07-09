@@ -29,6 +29,8 @@ class Game:
         renderer = Renderer.instance()
         input_manager = InputManager.instance()
 
+        self.system_manager.start()
+
 
         while window.is_open:
             # Update functions
