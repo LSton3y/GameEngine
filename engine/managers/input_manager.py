@@ -19,7 +19,7 @@ class InputManager(metaclass=SingletonMeta):
         self._keys_pressed.clear()
         self._keys_released.clear()
 
-        window = Window.instance().surface
+        window = Window.instance()
 
 
         for event in pygame.event.get():

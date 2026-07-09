@@ -48,5 +48,5 @@ class Game:
 
     # Handles main update loop
     def update(self, dt):
-        self.system_manager.update()
+        self.system_manager.update(dt)
                 
