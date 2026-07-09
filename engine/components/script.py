@@ -1,11 +1,10 @@
 from engine.systems.input_system import InputSystem
 from engine.components.transform import Transform
+from engine.serialization.serializable import Serializable
 
 
-
-class Script:
-    # Attributes which shouldn't be serialized
-    _exclude_from_dict = {"entity"}
+class Script(Serializable):
+    _exclude = {"entity"}
 
 
     def __init__(self, entity):
@@ -22,23 +21,16 @@ class Script:
         pass
 
     
-    # Serialization
-    def to_dict(self):
-        data = {}
-        for key, value in self.__dict__.items():
-            if key in self._exclude_from_dict:
-                continue
-            # Handle nested objects that know how to serialize themselves (e.g. Vector2)
-            data[key] = value.to_dict() if hasattr(value, "to_dict") else value
-
-        return data
-
+    # Converts data properties to Script class
     @classmethod
     def from_dict(cls, data, entity):
-        instance = cls(entity)
-        instance.__dict__.update(data)
+        obj = cls.__new__(cls)
+        obj.entity = entity
 
-        return instance
+        for key, value in data.items():
+            setattr(obj, key, value)
+
+        return obj
 
     
     @property
