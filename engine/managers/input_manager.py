@@ -1,5 +1,7 @@
 import pygame
+
 from engine.core.singleton import SingletonMeta
+from engine.rendering.window import Window
 
 
 class InputManager(metaclass=SingletonMeta):
@@ -13,9 +15,11 @@ class InputManager(metaclass=SingletonMeta):
         self._keys_released = set()
     
 
-    def poll(self, window):
+    def poll(self):
         self._keys_pressed.clear()
         self._keys_released.clear()
+
+        window = Window.instance().surface
 
 
         for event in pygame.event.get():
