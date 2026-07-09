@@ -31,7 +31,7 @@ class InputSystem(BaseSystem, metaclass=SingletonMeta):
         return any(input_mgr.is_key_pressed(k) for k in keys)
 
     # Checks if action is released
-    def is_action_pressed(self, action: str) -> bool:
+    def is_action_released(self, action: str) -> bool:
         keys = self._action_map.get(action, [])
         input_mgr = InputManager.instance()
-        return any(input_mgr.is_key_pressed(k) for k in keys)
+        return any(input_mgr.is_key_released(k) for k in keys)
