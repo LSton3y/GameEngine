@@ -10,7 +10,7 @@ class Transform:
         scale (Vector2): Vector2 representation of entity scale
     """
     
-    def __init__(self, position: Vector2 = Vector2(0, 0), rotation: int | float = 0, scale: Vector2 = Vector2(1, 1)) -> None:
-        self.position = position
+    def __init__(self, position: Vector2 = None, rotation: int | float = 0, scale: Vector2 = None) -> None:
+        self.position = Vector2(0, 0) if position is None else position
         self.rotation = rotation
-        self.scale = scale
+        self.scale = Vector2(0, 0) if scale is None else scale

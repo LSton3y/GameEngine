@@ -43,7 +43,7 @@ class Window(metaclass=SingletonMeta):
     
 
     # Sets window icon
-    def set_icon(self, icon_path: str, context):
+    def set_icon(self, icon_path: str):
         icon = AssetManager.instance().load_image(icon_path)
         pygame.display.set_icon(icon)
     
