@@ -1,6 +1,7 @@
 from engine.systems.input_system import InputSystem
 from engine.systems.physics_system import PhysicsSystem
 from engine.systems.render_system import RenderSystem
+from engine.systems.script_system import ScriptSystem
 
 
 class SystemManager:
@@ -14,6 +15,7 @@ class SystemManager:
         self._systems = [
             InputSystem(),
             PhysicsSystem(),
+            ScriptSystem(),
             RenderSystem()
         ]
     
