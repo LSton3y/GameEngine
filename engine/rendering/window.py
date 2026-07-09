@@ -1,5 +1,7 @@
 import pygame
+
 from engine.core.singleton import SingletonMeta
+from engine.managers.asset_manager import AssetManager
 
 
 class Window(metaclass=SingletonMeta):
@@ -42,7 +44,7 @@ class Window(metaclass=SingletonMeta):
 
     # Sets window icon
     def set_icon(self, icon_path: str, context):
-        icon = context.assets.load_image(icon_path)
+        icon = AssetManager.instance().load_image(icon_path)
         pygame.display.set_icon(icon)
     
     # Sets window title
