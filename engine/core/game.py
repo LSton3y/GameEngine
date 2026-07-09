@@ -34,15 +34,14 @@ class Game:
             # Update functions
             dt = window.tick()
             input_manager.poll(window)
-            self.update(dt)
 
             # Checks if window is stil open after input poll
             if not window.is_open:
                 break
 
-            # Render functions
+            # Update functions
             renderer.clear(window.surface)
-            self.render()
+            self.update(dt)
             renderer.update()
     
 
@@ -51,7 +50,3 @@ class Game:
     def update(self, dt):
         self.system_manager.update()
                 
-
-    # Handles rendering
-    def render(self):
-        pass
