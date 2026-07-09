@@ -1,3 +1,5 @@
+from engine.serialization.registry import COMPONENT_REGISTRY
+
 class Entity:
     """
     Base object in the game engine.
@@ -5,8 +7,33 @@ class Entity:
     Can store components like Transform, Sprite, etc.
     """
 
-    def __init__(self):
+    def __init__(self, name="Entity"):
+        self.name = name
         self._components = {} # type -> component reference
+    
+
+    # Converts entity properties to dict
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "components": {
+                type(c).__name__: c.to_dict()
+                for c in self._components.values()
+            }
+        }
+
+
+    # Returns class created from dict properties
+    @classmethod
+    def from_dict(cls, data):
+        entity = cls(name=data.get("name", "Entity"))
+
+        for name, component_data in data["components"].items():
+            component_class = COMPONENT_REGISTRY[name]
+            component = component_class.from_dict(component_data)
+            entity.add_component(component)
+
+        return entity
 
     
     # Adds component to entity
