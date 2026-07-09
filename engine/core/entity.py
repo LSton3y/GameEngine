@@ -1,5 +1,3 @@
-from engine.serialization.registry import COMPONENT_REGISTRY
-
 class Entity:
     """
     Base object in the game engine.
@@ -25,11 +23,11 @@ class Entity:
 
     # Returns class created from dict properties
     @classmethod
-    def from_dict(cls, data):
+    def from_dict(cls, data, registry):
         entity = cls(name=data.get("name", "Entity"))
 
         for name, component_data in data["components"].items():
-            component_class = COMPONENT_REGISTRY[name]
+            component_class = registry[name]
             component = component_class.from_dict(component_data)
             entity.add_component(component)
 
