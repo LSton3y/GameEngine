@@ -30,8 +30,6 @@ class Window(metaclass=SingletonMeta):
         self._running = True
     
 
-    @classmethod
-
 
     @property
     def size(self):

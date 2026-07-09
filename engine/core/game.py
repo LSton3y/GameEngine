@@ -1,8 +1,10 @@
 from engine.rendering.window import Window
 from engine.rendering.renderer import Renderer
+
 from engine.managers.asset_manager import AssetManager
 from engine.managers.input_manager import InputManager
 from engine.managers.scene_manager import SceneManager
+from engine.managers.system_manager import SystemManager
 
 
 class Game:
@@ -18,6 +20,8 @@ class Game:
         AssetManager()
         InputManager()
         SceneManager()
+        
+        self.system_manager = SystemManager()
     
 
     def run(self):
@@ -45,7 +49,7 @@ class Game:
 
     # Handles main update loop
     def update(self, dt):
-        pass
+        self.system_manager.update()
                 
 
     # Handles rendering
