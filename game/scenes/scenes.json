@@ -1,0 +1,14 @@
+{
+    "scene1": {
+        "entites": [
+            {
+                "name": "Sprite",
+                "components": {
+                    "Transform": { "position": [150, 200], "rotation": 0, "scale": [1, 1] },
+                    "Sprite": { "image_path": "game/assets/sprites/scratch-cat.png" },
+                    "PlayerMovement": {}
+                }
+            }
+        ]
+    }
+}
