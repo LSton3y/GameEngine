@@ -13,13 +13,7 @@ class Scene:
     """
 
     def __init__(self):
-        # TODO: Add a parameter that loads entities into the self.entities
-        sprite = Entity()
-        sprite.add_component(Transform(Vector2(150, 200)))
-        sprite.add_component(Sprite())
-        sprite.add_component(PlayerMovement(sprite))
-
-        self._entities = [sprite]
+        self._entities = []
     
 
     # Adds entity to scene
