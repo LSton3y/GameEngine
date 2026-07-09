@@ -12,10 +12,10 @@ class InputSystem(BaseSystem, metaclass=SingletonMeta):
 
     def __init__(self):
         self._action_map = {
-            "move_up": [pygame.K_w, pygame.K_UP],
-            "move_down": [pygame.K_s, pygame.K_DOWN],
-            "move_left": [pygame.K_a, pygame.K_LEFT],
-            "move_right": [pygame.K_d, pygame.K_RIGHT],
+            "up": [pygame.K_w, pygame.K_UP],
+            "down": [pygame.K_s, pygame.K_DOWN],
+            "left": [pygame.K_a, pygame.K_LEFT],
+            "right": [pygame.K_d, pygame.K_RIGHT],
         }
 
     # Checks if action is down
