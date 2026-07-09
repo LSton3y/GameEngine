@@ -1,8 +1,6 @@
 from engine.systems.input_system import InputSystem
-from engine.managers.input_manager import InputManager
-
 from engine.components.transform import Transform
-from engine.math.vector2 import Vector2
+
 
 
 class Script:
@@ -22,4 +20,8 @@ class Script:
     
     @property
     def transform(self):
-        self.entity.get_component(Transform)
+        return self.entity.get_component(Transform)
+
+    @property
+    def input(self):
+        return InputSystem.instance()
