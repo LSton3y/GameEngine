@@ -1,7 +1,8 @@
 from engine.math.vector2 import Vector2
+from engine.serialization.serializable import Serializable
 
 
-class Transform:
+class Transform(Serializable):
     """
     Stores position, rotation and scale of an entity
     Attributes:
@@ -14,22 +15,13 @@ class Transform:
         self.position = Vector2(0, 0) if position is None else position
         self.rotation = rotation
         self.scale = Vector2(1, 1) if scale is None else scale
-    
-
-    # Converts transform properties to dict
-    def to_dict(self):
-        return {
-            "position": self.position.to_tuple(),
-            "rotation": self.rotation,
-            "scale": self.scale.to_tuple()
-        }
 
 
     # Returns class with properties inherited from dict
     @classmethod
     def from_dict(cls, data):
         return cls(
-            position=Vector2(*data["position"]),
+            position=Vector2.from_dict(data["position"]),
             rotation=data["rotation"],
-            scale=Vector2(*data["scale"])
+            scale=Vector2.from_dict(data["scale"])
         )
