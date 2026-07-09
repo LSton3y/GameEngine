@@ -33,14 +33,14 @@ class Game:
         while window.is_open:
             # Update functions
             dt = window.tick()
-            input_manager.poll(window)
+            input_manager.poll()
 
             # Checks if window is stil open after input poll
             if not window.is_open:
                 break
 
             # Update functions
-            renderer.clear(window.surface)
+            renderer.clear()
             self.update(dt)
             renderer.update()
     
