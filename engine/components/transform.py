@@ -20,7 +20,7 @@ class Transform:
     def to_dict(self):
         return {
             "position": self.position.to_tuple(),
-            "rotation": self.position,
+            "rotation": self.rotation,
             "scale": self.scale.to_tuple()
         }
 
