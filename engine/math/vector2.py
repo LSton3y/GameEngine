@@ -1,8 +1,9 @@
 from typing import ClassVar
 from math import sqrt
+from engine.serialization.serializable import Serializable
 
 
-class Vector2:
+class Vector2(Serializable):
     """
     Stores an x and y value that can be used for position or scale
     Attributes:
@@ -128,6 +129,21 @@ class Vector2:
     def to_tuple(self) -> tuple:
         return (self.x, self.y)
     #endregion
+
+
+
+    # Converts class to dict
+    def to_dict(self):
+        return {
+            "x": self.x,
+            "y": self.y
+        }
+    
+
+    # Creates Vector2 from dict
+    @classmethod
+    def from_dict(cls, data):
+        return cls(data["x"], data["y"])
 
 
 
