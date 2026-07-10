@@ -1,4 +1,5 @@
 from engine.serialization.serializable import Serializable
+from engine.components.component import Component
 
 
 class Entity(Serializable):
@@ -37,14 +38,14 @@ class Entity(Serializable):
 
     # Returns Entity class from dict properties
     @classmethod
-    def from_dict(cls, data, registry):
-        obj = cls(data["name"]) # Initialise entity class
+    def from_dict(cls, data):
+        entity = cls(data["name"]) # Initialise entity class
 
         # Add all components in dict to entity 
         for component_name, component_values in data.get("_components", {}).items():
-            component_class = registry[component_name]
-            component = component_class.from_dict(component_values, obj)
+            component_class = Component.registry[component_name]
+            component = component_class.from_dict(component_values, entity)
 
-            obj.add_component(component)
+            entity.add_component(component)
         
-        return obj
+        return entity

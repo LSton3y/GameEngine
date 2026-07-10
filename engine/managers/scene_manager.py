@@ -24,11 +24,11 @@ class SceneManager(metaclass=SingletonMeta):
             json.dump(self._current_scene.to_dict(), file, indent=2)
     
     # Loads current scene from json file
-    def load(self, path, registry):
+    def load(self, path):
         with open(path) as file:
             data = json.load(file)
         
-        self._current_scene = Scene.from_dict(data, registry)
+        self._current_scene = Scene.from_dict(data)
     
 
     def change_scene_index(self, index) -> None:
