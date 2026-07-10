@@ -1,6 +1,9 @@
+from engine.serialization.serializable import Serializable
+from engine.serialization.registry import COMPONENT_REGISTRY
 from engine.core.entity import Entity
 
-class Scene:
+
+class Scene(Serializable):
     """
     Stores all the entities in a scene
     Attributes:
@@ -9,20 +12,6 @@ class Scene:
 
     def __init__(self):
         self._entities = []
-    
-
-    # Converts scene properties to dict
-    def to_dict(self):
-        return {
-            "entities": [e.to_dict() for e in self._entities]
-        }
-
-    # Returns class created from dict properties
-    @classmethod
-    def from_dict(cls, data, registry):
-        scene = cls()
-        scene._entities = [Entity.from_dict(e, registry) for e in data["entities"]]
-        return scene
 
 
     # Adds entity to scene
@@ -37,3 +26,15 @@ class Scene:
     @property
     def entities(self):
         return self._entities
+    
+
+    # Creates scene from properties
+    @classmethod
+    def from_dict(cls, data, registry):
+        obj = cls()
+
+        # Loop through each entity in dict
+        for entity in data.get("entities"):
+            obj.add_entity(Entity.from_dict(entity, registry))
+        
+        return obj
