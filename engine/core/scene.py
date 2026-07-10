@@ -33,7 +33,7 @@ class Scene(Serializable):
         obj = cls()
 
         # Loop through each entity in dict
-        for entity in data.get("_entities"):
+        for entity in data.get("_entities", {}):
             obj.add_entity(Entity.from_dict(entity, registry))
         
         return obj
