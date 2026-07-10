@@ -19,5 +19,5 @@ class Sprite(Component):
 
     # Returns class created from dict properties
     @classmethod
-    def from_dict(cls, data, entity):
+    def from_dict(cls, data):
         return cls(**data)
