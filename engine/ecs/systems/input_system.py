@@ -16,6 +16,7 @@ class InputSystem(BaseSystem, metaclass=SingletonMeta):
             "down": [pygame.K_s, pygame.K_DOWN],
             "left": [pygame.K_a, pygame.K_LEFT],
             "right": [pygame.K_d, pygame.K_RIGHT],
+            "jump": [pygame.K_SPACE],
         }
 
     # Checks if action is down
