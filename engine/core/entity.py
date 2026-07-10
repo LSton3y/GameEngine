@@ -1,6 +1,6 @@
-from engine.components.script import Script
+from engine.serialization.serializable import Serializable
 
-class Entity:
+class Entity(Serializable):
     """
     Base object in the game engine.
     
@@ -12,36 +12,6 @@ class Entity:
         self._components = {} # type -> component reference
     
 
-    # Converts entity properties to dict
-    def to_dict(self):
-        return {
-            "name": self.name,
-            "components": {
-                type(c).__name__: c.to_dict()
-                for c in self._components.values()
-            }
-        }
-
-
-    # Returns class created from dict properties
-    @classmethod
-    def from_dict(cls, data, registry):
-        entity = cls(name=data.get("name", "Entity"))
-
-        for name, component_data in data["components"].items():
-            component_class = registry[name]
-
-            # Different parameters if component is Script
-            if issubclass(component_class, Script):
-                component = component_class.from_dict(component_data, entity)
-            else:
-                component = component_class.from_dict(component_data)
-                
-            entity.add_component(component)
-
-        return entity
-
-    
     # Adds component to entity
     def add_component(self, component) -> dict:
         self._components[type(component)] = component
@@ -62,3 +32,18 @@ class Entity:
     # Checks if component is in entity
     def has_component(self, component_type):
         return component_type in self._components
+    
+
+    # Returns Entity class from dict properties
+    @classmethod
+    def from_dict(cls, data, registry):
+        obj = cls(data["name"]) # Initialise entity class
+
+        # Add all components in dict to entity 
+        for component_name, component_values in data.get("components"):
+            component_class = registry[component_name]
+            component = component_class.from_dict(component_values)
+
+            obj.add_component(component)
+        
+        return obj
