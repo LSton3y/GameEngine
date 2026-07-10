@@ -23,10 +23,6 @@ class Serializable:
 
 
     @classmethod
-    def from_dict(cls, data):
-        obj = cls.__new__(cls)
-
-        for key, value in data.items():
-            setattr(obj, key, value)
-
-        return obj
+    def from_dict(cls, data, registry):
+        pass
+            
