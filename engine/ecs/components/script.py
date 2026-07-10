@@ -1,4 +1,4 @@
-from engine.systems.input_system import InputSystem
+from engine.ecs.systems.input_system import InputSystem
 from engine.ecs.components.transform import Transform
 from engine.ecs.components.component import Component
 

@@ -1,4 +1,4 @@
-from engine.systems.base_system import BaseSystem
+from engine.ecs.systems.base_system import BaseSystem
 from engine.managers.scene_manager import SceneManager
 from engine.ecs.components.script import Script
 

@@ -1,7 +1,7 @@
-from engine.systems.input_system import InputSystem
-from engine.systems.physics_system import PhysicsSystem
-from engine.systems.render_system import RenderSystem
-from engine.systems.script_system import ScriptSystem
+from engine.ecs.systems.input_system import InputSystem
+from engine.ecs.systems.physics_system import PhysicsSystem
+from engine.ecs.systems.render_system import RenderSystem
+from engine.ecs.systems.script_system import ScriptSystem
 
 
 class SystemManager:

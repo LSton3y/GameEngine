@@ -1,6 +1,6 @@
 import pygame
 
-from engine.systems.base_system import BaseSystem
+from engine.ecs.systems.base_system import BaseSystem
 from engine.managers.input_manager import InputManager
 from engine.core.singleton import SingletonMeta
 
