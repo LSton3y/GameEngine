@@ -3,8 +3,9 @@ from engine.math.vector2 import Vector2
 
 
 class PlayerMovement(Script):
-    
-    def start(self):
+
+    def __init__(self, entity):
+        super().__init__(entity)
         self.speed = 300
 
     
