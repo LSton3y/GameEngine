@@ -1,11 +1,25 @@
 {
-  "entities": [
+  "_entities": [
     {
       "name": "Sprite",
-      "components": {
-          "Transform": { "position": {"x": 150, "y": 200}, "rotation": 0, "scale": {"x": 1, "y": 1 }},
-          "Sprite": { "image_path": "game/assets/sprites/scratch-cat.png" },
-          "PlayerMovement": { "speed": 5 }
+      "_components": {
+        "Transform": {
+          "position": {
+            "x": 150,
+            "y": 200
+          },
+          "rotation": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        "Sprite": {
+          "image_path": "game/assets/sprites/scratch-cat.png"
+        },
+        "PlayerMovement": {
+          "speed": 5
+        }
       }
     }
   ]
