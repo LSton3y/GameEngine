@@ -3,7 +3,7 @@
     {
       "name": "Sprite",
       "components": {
-          "Transform": { "position": [150, 200], "rotation": 0, "scale": [1, 1] },
+          "Transform": { "position": {"x": 150, "y": 200}, "rotation": 0, "scale": {"x": 1, "y": 1 }},
           "Sprite": { "image_path": "game/assets/sprites/scratch-cat.png" },
           "PlayerMovement": { "speed": 5 }
       }
