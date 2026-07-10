@@ -1,5 +1,4 @@
 from engine.serialization.serializable import Serializable
-from engine.serialization.registry import COMPONENT_REGISTRY
 from engine.core.entity import Entity
 
 
