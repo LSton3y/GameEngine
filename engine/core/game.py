@@ -6,8 +6,6 @@ from engine.managers.input_manager import InputManager
 from engine.managers.scene_manager import SceneManager
 from engine.managers.system_manager import SystemManager
 
-from engine.serialization.registry import COMPONENT_REGISTRY
-
 
 class Game:
     """
@@ -31,7 +29,7 @@ class Game:
         renderer = Renderer.instance()
         input_manager = InputManager.instance()
 
-        SceneManager.instance().load("game/scenes/scene1.json", COMPONENT_REGISTRY)
+        SceneManager.instance().load("game/scenes/scene1.json")
         self.system_manager.start()
 
 
