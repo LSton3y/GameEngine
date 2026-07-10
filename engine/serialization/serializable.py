@@ -8,16 +8,17 @@ class Serializable:
 
 
     # Serializes a value into a dict
-    def serialize(self, value):
+    @staticmethod
+    def serialize(value):
         if hasattr(value, "to_dict"):
             return value.to_dict()
 
         if isinstance(value, list):
-            return [self.serialize(v) for v in value]
+            return [Serializable.serialize(v) for v in value]
 
         if isinstance(value, dict):
             return {
-                k.__name__: self.serialize(v)
+                k.__name__ if isinstance(k, type) else k: Serializable.serialize(v)
                 for k, v in value.items()
             }
 
