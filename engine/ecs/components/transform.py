@@ -1,5 +1,5 @@
 from engine.math.vector2 import Vector2
-from engine.components.component import Component
+from engine.ecs.components.component import Component
 
 
 class Transform(Component):

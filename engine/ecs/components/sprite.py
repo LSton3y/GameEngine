@@ -1,5 +1,5 @@
 from engine.managers.asset_manager import AssetManager
-from engine.components.component import Component
+from engine.ecs.components.component import Component
 
 
 class Sprite(Component):

@@ -1,6 +1,6 @@
 from engine.systems.input_system import InputSystem
-from engine.components.transform import Transform
-from engine.components.component import Component
+from engine.ecs.components.transform import Transform
+from engine.ecs.components.component import Component
 
 
 class Script(Component):

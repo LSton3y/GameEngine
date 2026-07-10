@@ -1,6 +1,6 @@
 from engine.systems.base_system import BaseSystem
 from engine.managers.scene_manager import SceneManager
-from engine.components.script import Script
+from engine.ecs.components.script import Script
 
 
 class ScriptSystem(BaseSystem):

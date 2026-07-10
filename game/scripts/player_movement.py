@@ -1,4 +1,4 @@
-from engine.components.script import Script
+from engine.ecs.components.script import Script
 from engine.math.vector2 import Vector2
 
 

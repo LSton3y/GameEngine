@@ -1,5 +1,5 @@
-from engine.components.sprite import Sprite
-from engine.components.transform import Transform
+from engine.ecs.components.sprite import Sprite
+from engine.ecs.components.transform import Transform
 
 from engine.systems.base_system import BaseSystem
 from engine.managers.scene_manager import SceneManager

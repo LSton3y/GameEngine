@@ -1,6 +1,6 @@
 from engine.serialization.serializable import Serializable
-from engine.components.component import Component
-from engine.components.script import Script
+from engine.ecs.components.component import Component
+from engine.ecs.components.script import Script
 
 
 class Entity(Serializable):
