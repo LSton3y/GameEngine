@@ -1,5 +1,6 @@
 from engine.serialization.serializable import Serializable
 
+
 class Entity(Serializable):
     """
     Base object in the game engine.
@@ -40,9 +41,9 @@ class Entity(Serializable):
         obj = cls(data["name"]) # Initialise entity class
 
         # Add all components in dict to entity 
-        for component_name, component_values in data.get("components"):
+        for component_name, component_values in data.get("components").items():
             component_class = registry[component_name]
-            component = component_class.from_dict(component_values)
+            component = component_class.from_dict(component_values, obj)
 
             obj.add_component(component)
         

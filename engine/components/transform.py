@@ -19,7 +19,7 @@ class Transform(Serializable):
 
     # Returns class with properties inherited from dict
     @classmethod
-    def from_dict(cls, data):
+    def from_dict(cls, data, entity):
         return cls(
             position=Vector2.from_dict(data["position"]),
             rotation=data["rotation"],

@@ -20,9 +20,5 @@ class Serializable:
                 data[key] = value
 
         return data
-
-
-    @classmethod
-    def from_dict(cls, data, registry):
-        pass
+    
             

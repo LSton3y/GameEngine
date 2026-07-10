@@ -19,5 +19,5 @@ class Sprite(Serializable):
 
     # Returns class created from dict properties
     @classmethod
-    def from_dict(cls, data):
+    def from_dict(cls, data, entity):
         return cls(**data)
