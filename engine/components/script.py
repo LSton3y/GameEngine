@@ -24,8 +24,7 @@ class Script(Serializable):
     # Converts data properties to Script class
     @classmethod
     def from_dict(cls, data, entity):
-        obj = cls.__new__(cls)
-        obj.entity = entity
+        obj = cls(entity)
 
         for key, value in data.items():
             setattr(obj, key, value)
