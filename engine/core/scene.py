@@ -29,11 +29,11 @@ class Scene(Serializable):
 
     # Creates scene from properties
     @classmethod
-    def from_dict(cls, data, registry):
+    def from_dict(cls, data):
         obj = cls()
 
         # Loop through each entity in dict
         for entity in data.get("_entities", {}):
-            obj.add_entity(Entity.from_dict(entity, registry))
+            obj.add_entity(Entity.from_dict(entity))
         
         return obj
