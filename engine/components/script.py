@@ -1,9 +1,9 @@
 from engine.systems.input_system import InputSystem
 from engine.components.transform import Transform
-from engine.serialization.serializable import Serializable
+from engine.components.component import Component
 
 
-class Script(Serializable):
+class Script(Component):
     _exclude = {"entity"}
 
 

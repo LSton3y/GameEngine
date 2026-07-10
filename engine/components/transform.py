@@ -1,8 +1,8 @@
 from engine.math.vector2 import Vector2
-from engine.serialization.serializable import Serializable
+from engine.components.component import Component
 
 
-class Transform(Serializable):
+class Transform(Component):
     """
     Stores position, rotation and scale of an entity
     Attributes:

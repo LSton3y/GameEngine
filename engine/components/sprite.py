@@ -1,8 +1,8 @@
 from engine.managers.asset_manager import AssetManager
-from engine.serialization.serializable import Serializable
+from engine.components.component import Component
 
 
-class Sprite(Serializable):
+class Sprite(Component):
     """
     Handles the visual representation of an entity
     Attributes:
