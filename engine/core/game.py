@@ -6,6 +6,9 @@ from engine.managers.input_manager import InputManager
 from engine.managers.scene_manager import SceneManager
 from engine.managers.system_manager import SystemManager
 
+import game.scripts
+from engine.scripting.loader import import_package
+
 
 class Game:
     """
@@ -29,6 +32,7 @@ class Game:
         renderer = Renderer.instance()
         input_manager = InputManager.instance()
 
+        import_package(game.scripts)
         SceneManager.instance().load("game/scenes/scene1.json")
         self.system_manager.start()
 
