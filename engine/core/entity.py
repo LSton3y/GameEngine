@@ -45,11 +45,7 @@ class Entity(Serializable):
         # Add all components in dict to entity 
         for component_name, component_values in data.get("_components", {}).items():
             component_class = Component.registry[component_name]
-
-            if issubclass(component_class, Script):
-                component = component_class.from_dict(component_values, entity)
-            else:
-                component = component_class.from_dict(component_values)
+            component = component_class.from_dict(component_values, entity)
 
             entity.add_component(component)
         
