@@ -8,7 +8,6 @@ class AssetManager(Singleton):
     """
 
     def __init__(self):
-        super().__init__(AssetManager)
         self._images = {} # Caches loaded images (path -> Surface)
         self._sounds = {} # Caches loaded sounds (path -> Sound)
     

@@ -10,8 +10,6 @@ class Window(Singleton):
     """
 
     def __init__(self, width=800, height=600, title="My Engine", fullscreen=False, vsync=True, target_fps=60):
-        super().__init__(Window)
-
         # Pygame initialisation
         pygame.init()
         pygame.display.set_caption(title)
