@@ -14,8 +14,10 @@ class PlayerMovement(Script):
 
         if self.Input.is_action_down("left"):
             movement.x += -1
+            self.transform.rotation -= 5
         if self.Input.is_action_down("right"):
             movement.x += 1
+            self.transform.rotation += 5
         if self.Input.is_action_down("up"):
             movement.y += -1
         if self.Input.is_action_down("down"):
