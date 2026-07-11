@@ -1,15 +1,19 @@
 import pygame
-from engine.core.singleton import SingletonMeta
 
 
-class AssetManager(metaclass=SingletonMeta):
+class AssetManager:
     """
     Handles the loading of assets
     """
+    _instance = None
 
     def __init__(self):
         self._images = {} # Caches loaded images (path -> Surface)
         self._sounds = {} # Caches loaded sounds (path -> Sound)
+
+        # Handles singleton logic
+        if AssetManager._instance is not None:
+            raise ValueError("AssetManger instance already exists.")
     
 
     # Loads and caches image
@@ -22,4 +26,11 @@ class AssetManager(metaclass=SingletonMeta):
 
     # Loads and caches sounds
     def load_sound(self, sound_path: str) -> pygame.mixer.Sound:
-        pass
+        pass # TODO: Make sound logic
+
+    
+    @staticmethod
+    def get_instance():
+        if AssetManager._instance is None:
+            AssetManager._instance = AssetManager()
+        return AssetManager._instance
