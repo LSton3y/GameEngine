@@ -16,7 +16,7 @@ class Entity(Serializable):
     
 
     # Adds component to entity
-    def add_component(self, component) -> dict:
+    def add_component(self, component):
         self._components[type(component)] = component
 
         setattr(
