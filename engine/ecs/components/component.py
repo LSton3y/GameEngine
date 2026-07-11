@@ -1,13 +1,11 @@
 from engine.serialization.serializable import Serializable
+from engine.serialization.registry import Registry
+
 
 class Component(Serializable):
     """
     Base component class.
-
-    Handles the registry of classes
     """
-
-    registry = {}
 
     
     def __init_subclass__(cls):
@@ -15,4 +13,4 @@ class Component(Serializable):
 
         # Do not register abstract base class
         if cls is not Component:
-            Component.registry[cls.__name__] = cls
+            Registry.register(cls)
