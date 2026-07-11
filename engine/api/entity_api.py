@@ -7,6 +7,6 @@ def create_entity(name: str) -> Entity:
     return Game.instance().scene_manager.current_scene.add_entity(Entity(name))
 
 
-def remove_entity(id: int):
-    """Removes an entity from the scene based on id"""
+def destroy_entity(entity: Entity):
+    """Removes an entity from the scene"""
     pass
