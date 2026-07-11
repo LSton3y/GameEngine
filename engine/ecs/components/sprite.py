@@ -1,4 +1,4 @@
-from engine.managers.asset_manager import AssetManager
+import engine.core.game as g
 from engine.ecs.components.component import Component
 
 
@@ -14,7 +14,7 @@ class Sprite(Component):
 
     def __init__(self, image_path: str="game/assets/sprites/scratch-cat.png"):
         self.image_path = image_path
-        self.image = AssetManager.instance().load_image(image_path)
+        self.image = g.Game.instance().asset_manager.load_image(image_path)
     
 
     # Returns class created from dict properties

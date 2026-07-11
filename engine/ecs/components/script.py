@@ -1,3 +1,4 @@
+import engine.core.game as g
 from engine.ecs.components.transform import Transform
 from engine.ecs.components.component import Component
 
@@ -37,5 +38,4 @@ class Script(Component):
     
     @property
     def Input(self):
-        from engine.core.game import Game
-        return Game.instance().system_manager.input_system
+        return g.Game.instance().system_manager.input_system
