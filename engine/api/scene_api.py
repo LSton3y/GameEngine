@@ -23,6 +23,11 @@ def load(index: int):
     Game.instance().load()
 
 
+def load_current_scene():
+    """Loads the current scene"""
+    Game.instance().load()
+
+
 def create(name: str):
     """Creates a new scene and returns it"""
     return Game.instance().scene_manager.add_scene(name)
