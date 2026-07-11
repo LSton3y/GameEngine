@@ -1,4 +1,5 @@
 import pygame
+import engine.core.game as g
 
 from engine.rendering.window import Window
 
@@ -18,7 +19,7 @@ class InputManager:
         self._keys_pressed.clear()
         self._keys_released.clear()
 
-        window = Window.instance()
+        window = g.Game.instance().window
 
 
         for event in pygame.event.get():

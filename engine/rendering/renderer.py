@@ -1,4 +1,5 @@
 import pygame
+import engine.core.game as g
 
 from engine.rendering.window import Window
 
@@ -10,7 +11,7 @@ class Renderer:
     
     # Fills screen with color
     def clear(self, color=(255, 255, 255)):
-        Window.instance().surface.fill(color)
+        g.Game.instance().window.surface.fill(color)
 
     
     # Draws sprite
@@ -22,7 +23,7 @@ class Renderer:
         # Handles position of sprite
         rect = image.get_rect(center=transform.position.to_tuple())
 
-        Window.instance().surface.blit(image, rect)
+        g.Game.instance().window.surface.blit(image, rect)
     
 
     # Updates display
