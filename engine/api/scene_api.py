@@ -22,11 +22,11 @@ def load(index: int):
     Game.instance().scene_manager.change_scene_index(index)
 
 
-def create():
+def create(name: str):
     """Creates a new scene"""
-    pass
+    return Game.instance().scene_manager.add_scene(name)
 
 
 def remove(index: int):
     """Removes a scene based on index"""
-    pass
+    Game.instance().scene_manager.remove_scene(index)

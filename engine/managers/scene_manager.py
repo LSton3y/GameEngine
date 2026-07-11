@@ -38,6 +38,17 @@ class SceneManager:
             return IndexError("Scene index does not exist.")
     
 
+    # Adds scene to scene list
+    def add_scene(self, name: str) -> Scene:
+        scene = Scene()
+        self._scenes.append(scene)
+        return scene
+    
+    # Removes scene from scene list
+    def remove_scene(self, index: int):
+        self._scenes.pop(index)
+
+
     @property
     def current_scene(self):
         return self._current_scene
