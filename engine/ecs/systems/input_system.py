@@ -8,7 +8,7 @@ class InputSystem(BaseSystem):
     Handles input actions
     """
 
-    def __init__(self, game):
+    def __init__(self):
         self._action_map = {
             "up": [pygame.K_w, pygame.K_UP],
             "down": [pygame.K_s, pygame.K_DOWN],
@@ -16,8 +16,6 @@ class InputSystem(BaseSystem):
             "right": [pygame.K_d, pygame.K_RIGHT],
             "jump": [pygame.K_SPACE],
         }
-
-        self.game = game
 
 
     # Checks if action is down

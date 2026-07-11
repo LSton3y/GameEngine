@@ -18,15 +18,13 @@ class Game(Singleton):
     """
 
     def __init__(self):
-        # Singleton initalisation
-        self.window = Window(800, 600, "My Game")
-        self.asset_manager = AssetManager()
-
         # Class initialisation
         self.renderer = Renderer()
+        self.window = Window(800, 600, "My Game")
 
+        self.asset_manager = AssetManager()
         self.scene_manager = SceneManager()
-        self.system_manager = SystemManager(self)
+        self.system_manager = SystemManager()
         self.input_manager = InputManager()
 
     
