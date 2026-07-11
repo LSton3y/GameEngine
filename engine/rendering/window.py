@@ -1,10 +1,9 @@
 import pygame
 
 from engine.managers.asset_manager import AssetManager
-from engine.core.singleton import Singleton
 
 
-class Window(Singleton):
+class Window:
     """
     Handles the attributes of the window
     """

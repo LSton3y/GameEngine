@@ -1,8 +1,7 @@
 import pygame
-from engine.core.singleton import Singleton
 
 
-class AssetManager(Singleton):
+class AssetManager:
     """
     Handles the loading of assets
     """

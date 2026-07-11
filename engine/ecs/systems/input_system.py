@@ -1,10 +1,9 @@
 import pygame
 
 from engine.ecs.systems.base_system import BaseSystem
-from engine.core.singleton import Singleton
 
 
-class InputSystem(BaseSystem, Singleton):
+class InputSystem(BaseSystem):
     """
     Handles input actions
     """
