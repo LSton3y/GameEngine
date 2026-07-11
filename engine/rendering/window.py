@@ -1,15 +1,17 @@
 import pygame
 
 from engine.managers.asset_manager import AssetManager
+from engine.core.singleton import Singleton
 
 
-class Window:
+class Window(Singleton):
     """
     Handles the attributes of the window
     """
-    _instance = None
 
     def __init__(self, width=800, height=600, title="My Engine", fullscreen=False, vsync=True, target_fps=60):
+        super().__init__(Window)
+
         # Pygame initialisation
         pygame.init()
         pygame.display.set_caption(title)
@@ -30,12 +32,6 @@ class Window:
         self.surface = pygame.display.set_mode((width, height), flags, vsync=vsync)
         self.clock = pygame.time.Clock()
         self._running = True
-
-        # Handles singleton logic
-        if Window._instance is not None:
-            raise ValueError("Window instance already exists.")
-        else:
-            Window._instance = self
     
 
 
@@ -86,10 +82,3 @@ class Window:
     def close(self):
         self._running = False
         pygame.quit()
-    
-
-    @staticmethod
-    def get_instance():
-        if Window._instance is None:
-            Window._instance = Window()
-        return Window._instance
