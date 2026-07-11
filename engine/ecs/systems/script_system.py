@@ -13,14 +13,10 @@ class ScriptSystem(BaseSystem):
 
 
     def start(self):
-        for entity in self.game.scene_manager.current_scene.entities:
-            for component in entity.get_components():
-                if isinstance(component, Script):
-                    component.start()
+        for script in self.game.scene_manager.current_scene.components():
+            script.start()
                     
 
     def update(self, dt):
-        for entity in self.game.scene_manager.current_scene.entities:
-            for component in entity.get_components():
-                if isinstance(component, Script):
-                    component.update(dt)
+        for script in self.game.scene_manager.current_scene.components():
+            script.update(dt)
