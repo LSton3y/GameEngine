@@ -1,10 +1,9 @@
 import json
 
 from engine.core.scene import Scene
-from engine.core.singleton import SingletonMeta
 
 
-class SceneManager(metaclass=SingletonMeta):
+class SceneManager:
     """
     Stores all the scenes
 
