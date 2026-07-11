@@ -23,7 +23,7 @@ def load(index: int):
 
 
 def create(name: str):
-    """Creates a new scene"""
+    """Creates a new scene and returns it"""
     return Game.instance().scene_manager.add_scene(name)
 
 
