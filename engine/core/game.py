@@ -2,7 +2,6 @@ from engine.rendering.window import Window
 from engine.rendering.renderer import Renderer
 
 from engine.managers.asset_manager import AssetManager
-from engine.managers.input_manager import InputManager
 from engine.managers.scene_manager import SceneManager
 from engine.managers.system_manager import SystemManager
 
@@ -16,40 +15,37 @@ class Game:
     """
 
     def __init__(self):
-        # Singleton initialisations
-        Window(800, 600, "My Game")
-        Renderer()
+        # Singleton initalisation
+        self.window = Window(800, 600, "My Game")
+        self.asset_manager = AssetManager()
 
-        AssetManager()
-        InputManager()
-        SceneManager()
-        
+        # Class initialisation
+        self.renderer = Renderer()
+
+        self.scene_manager = SceneManager()
         self.system_manager = SystemManager()
+
     
 
     def run(self):
-        window = Window.instance()
-        renderer = Renderer.instance()
-        input_manager = InputManager.instance()
-
         import_package(game.scripts)
         SceneManager.instance().load("game/scenes/scene1.json")
         self.system_manager.start()
 
 
-        while window.is_open:
+        while self.window.is_open:
             # Update functions
-            dt = window.tick()
-            input_manager.poll()
+            dt = self.window.tick()
+            self.input_manager.poll()
 
             # Checks if window is stil open after input poll
-            if not window.is_open:
+            if not self.window.is_open:
                 break
 
             # Update functions
-            renderer.clear()
+            self.renderer.clear()
             self.update(dt)
-            renderer.update()
+            self.renderer.update()
     
 
 
