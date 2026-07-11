@@ -14,6 +14,8 @@ class AssetManager:
         # Handles singleton logic
         if AssetManager._instance is not None:
             raise ValueError("AssetManger instance already exists.")
+        else:
+            AssetManager._instance = self
     
 
     # Loads and caches image
