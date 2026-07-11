@@ -1,13 +1,13 @@
 from engine.core.game import Game
 
 
-def get_current_scene():
+def current_scene():
     """Returns the current active scene"""
     return Game.instance().scene_manager.current_scene
 
 
-def change_current_scene(index: int):
-    """Changes the current scene based on index"""
+def load_scene(index: int):
+    """Loads a scene based on index"""
     Game.instance().scene_manager.change_scene_index(index)
 
 
