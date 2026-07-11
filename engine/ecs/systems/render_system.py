@@ -10,9 +10,8 @@ class RenderSystem(BaseSystem):
         self.game = game
 
     def update(self, dt):
-        for entity in self.game.scene_manager.current_scene.entities:
-            if entity.has_component(Sprite) and entity.has_component(Transform):
-                self.game.renderer.draw_sprite(
-                    entity.get_component(Transform),
-                    entity.get_component(Sprite)
-                )
+        for entity in self.game.scene_manager.current_scene.query(Transform, Sprite):
+            self.game.renderer.draw_sprite(
+                entity.get_component(Transform),
+                entity.get_component(Sprite)
+            )

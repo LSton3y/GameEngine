@@ -21,6 +21,12 @@ class Scene(Serializable):
     def remove_entity(self, entity):
         self._entities.remove(entity)
     
+    # Retuns all the entites that have certain components
+    def query(self, *components):
+        for entity in self._entities:
+            if all(entity.has_component(c) for c in components):
+                yield entity
+
 
     @property
     def entities(self):
