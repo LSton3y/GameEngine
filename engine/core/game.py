@@ -31,8 +31,7 @@ class Game(Singleton):
 
     def run(self):
         import_package(game.scripts)
-        self.scene_manager.load("game/scenes/scene1.json")
-        self.system_manager.start()
+        self.load()
 
 
         while self.window.is_open:
@@ -54,4 +53,9 @@ class Game(Singleton):
     # Handles main update loop
     def update(self, dt):
         self.system_manager.update(dt)
-                
+    
+
+    # Handles the loading
+    def load(self):
+        self.scene_manager.load("game/scenes/scene1.json")
+        self.system_manager.start()

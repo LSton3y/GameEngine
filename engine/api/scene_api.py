@@ -20,6 +20,7 @@ def save():
 def load(index: int):
     """Loads a scene based on index"""
     Game.instance().scene_manager.change_scene_index(index)
+    Game.instance().load()
 
 
 def create(name: str):
