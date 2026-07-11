@@ -4,6 +4,7 @@ from engine.rendering.renderer import Renderer
 from engine.managers.asset_manager import AssetManager
 from engine.managers.scene_manager import SceneManager
 from engine.managers.system_manager import SystemManager
+from engine.managers.input_manager import InputManager
 
 import game.scripts
 from engine.scripting.loader import import_package
@@ -24,6 +25,7 @@ class Game:
 
         self.scene_manager = SceneManager()
         self.system_manager = SystemManager(self)
+        self.input_manager = InputManager()
 
     
 
@@ -36,7 +38,7 @@ class Game:
         while self.window.is_open:
             # Update functions
             dt = self.window.tick()
-            #self.input_manager.poll()
+            self.input_manager.poll()
 
             # Checks if window is stil open after input poll
             if not self.window.is_open:

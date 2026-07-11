@@ -19,20 +19,19 @@ class InputSystem(BaseSystem):
         }
 
         self.game = game
-        self.input_manager = InputManager()
 
 
     # Checks if action is down
     def is_action_down(self, action: str) -> bool:
         keys = self._action_map.get(action, [])
-        return any(self.input_manager.is_key_down(k) for k in keys)
+        return any(self.game.input_manager.is_key_down(k) for k in keys)
 
     # Checks if action is pressed
     def is_action_pressed(self, action: str) -> bool:
         keys = self._action_map.get(action, [])
-        return any(self.input_manager.is_key_pressed(k) for k in keys)
+        return any(self.game.input_manager.is_key_pressed(k) for k in keys)
 
     # Checks if action is released
     def is_action_released(self, action: str) -> bool:
         keys = self._action_map.get(action, [])
-        return any(self.input_manager.is_key_released(k) for k in keys)
+        return any(self.game.input_manager.is_key_released(k) for k in keys)
