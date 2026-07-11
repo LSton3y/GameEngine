@@ -6,11 +6,13 @@ from engine.managers.scene_manager import SceneManager
 from engine.managers.system_manager import SystemManager
 from engine.managers.input_manager import InputManager
 
+from engine.core.singleton import Singleton
+
 import game.scripts
 from engine.scripting.loader import import_package
 
 
-class Game:
+class Game(Singleton):
     """
     Handles the main game loop and processes
     """
