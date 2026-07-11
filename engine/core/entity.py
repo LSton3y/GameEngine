@@ -1,6 +1,6 @@
 from engine.serialization.serializable import Serializable
 from engine.ecs.components.component import Component
-from engine.ecs.components.script import Script
+from engine.serialization.registry import Registry
 
 
 class Entity(Serializable):
@@ -51,7 +51,7 @@ class Entity(Serializable):
 
         # Add all components in dict to entity 
         for component_name, component_values in data.get("_components", {}).items():
-            component_class = Component.registry[component_name]
+            component_class = Registry.get(component_name)
             component = component_class.from_dict(component_values, entity)
 
             entity.add_component(component)
