@@ -12,14 +12,14 @@ class PlayerMovement(Script):
     def update(self, dt):
         movement = Vector2(0, 0)
 
-        if self.input.is_action_down("left"):
-            movement.x += -1
-        if self.input.is_action_down("right"):
-            movement.x += 1
-        if self.input.is_action_down("up"):
-            movement.y += -1
-        if self.input.is_action_down("down"):
-            movement.y += 1
+        # if self.input.is_action_down("left"):
+        #     movement.x += -1
+        # if self.input.is_action_down("right"):
+        #     movement.x += 1
+        # if self.input.is_action_down("up"):
+        #     movement.y += -1
+        # if self.input.is_action_down("down"):
+        #     movement.y += 1
         
         movement = movement.normalize()
 

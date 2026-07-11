@@ -35,7 +35,3 @@ class Script(Component):
     @property
     def transform(self):
         return self.entity.get_component(Transform)
-
-    @property
-    def input(self):
-        return InputSystem.instance()
