@@ -18,6 +18,13 @@ class Entity(Serializable):
     # Adds component to entity
     def add_component(self, component) -> dict:
         self._components[type(component)] = component
+
+        setattr(
+            self,
+            type(component).__name__.lower(),
+            component
+        )   
+
         return component # Allows for chaining, e.g. entity.add_component(Transform).x
 
     # Removes component from entity
