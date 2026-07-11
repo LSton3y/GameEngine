@@ -11,12 +11,12 @@ class SystemManager:
     Controls the update loop of the systems
     """
 
-    def __init__(self):
+    def __init__(self, game):
         self._systems = [
-            InputSystem(self),
-            PhysicsSystem(self),
-            ScriptSystem(self),
-            RenderSystem(self)
+            InputSystem(game),
+            PhysicsSystem(game),
+            ScriptSystem(game),
+            RenderSystem(game)
         ]
     
     

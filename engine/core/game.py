@@ -36,7 +36,7 @@ class Game:
         while self.window.is_open:
             # Update functions
             dt = self.window.tick()
-            self.input_manager.poll()
+            #self.input_manager.poll()
 
             # Checks if window is stil open after input poll
             if not self.window.is_open:
