@@ -9,19 +9,21 @@ def create(name: str) -> Entity:
 
 def destroy(entity: Entity):
     """Removes an entity from the scene"""
-    pass
+    Game.instance().scene_manager.current_scene.remove_entity(entity)
 
 
-def find(name: str):
+def find(name: str) -> Entity | None:
     """Returns an entity based on name"""
-    pass
+    for entity in Game.instance().scene_manager.current_scene.entities:
+        if entity.name == name:
+            return entity
 
 
 def enable(entity: Entity):
     """Enables an entity"""
-    pass
+    entity.enabled = True
 
 
 def disable(entity: Entity):
     """Disables an entity"""
-    pass
+    entity.enabled = False

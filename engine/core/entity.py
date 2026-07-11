@@ -12,6 +12,7 @@ class Entity(Serializable):
 
     def __init__(self, name="Entity"):
         self.name = name
+        self.enabled = True # TODO: Add functionality to this
         self._components = {} # type -> component reference
     
 
