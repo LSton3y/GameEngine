@@ -1,26 +1,32 @@
 from engine.core.game import Game
 
 
-def get_current_scene():
+def current_scene():
     """Returns the current active scene"""
     return Game.instance().scene_manager.current_scene
 
 
-def get_current_scene_index():
+def current_scene_index():
     """Returns the index of the current active scene"""
-    return Game.instance().scene_manager.scenes.index(get_current_scene())
+    return Game.instance().scene_manager.scenes.index(current_scene())
 
 
-def load_scene(index: int):
+def save():
+    """Saves the current active scene"""
+    # TODO: Change save path to variable
+    Game.instance().scene_manager.save(f"game/scenes/scene{current_scene_index()}.json")
+
+
+def load(index: int):
     """Loads a scene based on index"""
     Game.instance().scene_manager.change_scene_index(index)
 
 
-def create_scene():
+def create():
     """Creates a new scene"""
     pass
 
 
-def remove_scene(index: int):
+def remove(index: int):
     """Removes a scene based on index"""
     pass
