@@ -23,13 +23,13 @@ class Game:
         self.renderer = Renderer()
 
         self.scene_manager = SceneManager()
-        self.system_manager = SystemManager()
+        self.system_manager = SystemManager(self)
 
     
 
     def run(self):
         import_package(game.scripts)
-        SceneManager.instance().load("game/scenes/scene1.json")
+        self.scene_manager.load("game/scenes/scene1.json")
         self.system_manager.start()
 
 
