@@ -26,15 +26,6 @@ class Scene(Serializable):
         for entity in self._entities:
             if all(entity.has_component(c) for c in components):
                 yield entity
-    
-    # Retuns all components that are in a scene
-    def components(self, component_type):
-        for entity in self.entities:
-            component = entity.get_component(component_type)
-
-            if component is not None:
-                yield component
-
 
     @property
     def entities(self):

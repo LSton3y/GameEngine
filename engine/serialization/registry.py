@@ -7,9 +7,9 @@ class Registry:
 
     @staticmethod
     def register(cls):
-        Registry._registry.add(cls.__name__)
+        Registry._registry[cls.__name__] = cls
     
-    
+
     @staticmethod
     def get(name):
         return Registry._registry.get(name)
