@@ -1,5 +1,6 @@
 from engine.ecs.components.script import Script
 from engine.math.vector2 import Vector2
+import engine.api.scene_api as scene
 
 
 class PlayerMovement(Script):
@@ -22,6 +23,8 @@ class PlayerMovement(Script):
             movement.y += -1
         if self.Input.is_action_down("down"):
             movement.y += 1
+        if self.Input.is_action_pressed("reset"):
+            scene.load_current_scene()
         
         movement = movement.normalize()
 

@@ -16,6 +16,7 @@ class InputSystem(BaseSystem):
             "left": [pygame.K_a, pygame.K_LEFT],
             "right": [pygame.K_d, pygame.K_RIGHT],
             "jump": [pygame.K_SPACE],
+            "reset": [pygame.K_r],
         }
 
 
