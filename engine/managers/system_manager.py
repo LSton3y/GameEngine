@@ -12,11 +12,16 @@ class SystemManager:
     """
 
     def __init__(self):
+        self.input_system = InputSystem()
+        self.physics_system = PhysicsSystem()
+        self.script_system = ScriptSystem()
+        self.render_system = RenderSystem()
+
         self._systems = [
-            InputSystem(),
-            PhysicsSystem(),
-            ScriptSystem(),
-            RenderSystem()
+            self.input_system,
+            self.physics_system,
+            self.script_system,
+            self.render_system,
         ]
     
     
