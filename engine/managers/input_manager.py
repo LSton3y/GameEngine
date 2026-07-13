@@ -73,13 +73,13 @@ class InputManager:
     
     
     # Checks whether a mouse button is down
-    def is_key_down(self, mouse_button) -> bool:
+    def is_mouse_down(self, mouse_button) -> bool:
         return mouse_button in self._mouse_buttons_down
 
     # Checks whether a mouse button has been pressed
-    def is_key_pressed(self, mouse_button) -> bool:
+    def is_mouse_pressed(self, mouse_button) -> bool:
         return mouse_button in self._mouse_buttons_pressed
 
     # Checks whether a mouse button has been released
-    def is_key_released(self, mouse_buttons) -> bool:
-        return mouse_buttons in self.mouse_buttons_released
+    def is_mouse_released(self, mouse_button) -> bool:
+        return mouse_button in self.mouse_buttons_released
