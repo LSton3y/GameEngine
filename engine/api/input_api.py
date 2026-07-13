@@ -191,3 +191,18 @@ def key_down(key: Keys):
 def key_released(key: Keys):
     """Checks is a key has been released"""
     Game.instance().input_manager.is_key_released(key.value)
+
+
+def mouse_pressed(mouse_button: Mouse):
+    """Checks if a mouse button has been pressed"""
+    Game.instance().input_manager.is_mouse_pressed(mouse_button.value)
+
+
+def mouse_down(mouse_button: Mouse):
+    """Checks if a mouse button is down"""
+    Game.instance().input_manager.is_mouse_down(mouse_button.value)
+
+
+def mouse_released(mouse_button: Mouse):
+    """Checks if a mouse button has been released"""
+    Game.instance().input_manager.is_mouse_released(mouse_button.value)
