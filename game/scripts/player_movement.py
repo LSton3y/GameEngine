@@ -1,6 +1,6 @@
 from engine.ecs.components.script import Script
 from engine.math.vector2 import Vector2
-import engine.api.scene_api as scene
+from engine.api import *
 
 
 class PlayerMovement(Script):
