@@ -13,11 +13,18 @@ class InputManager:
         self._keys_down = set()
         self._keys_pressed = set()
         self._keys_released = set()
-    
+
+        self._mouse_buttons_down = set()
+        self._mouse_buttons_pressed = set()
+        self._mouse_buttons_released = set()
+     
 
     def poll(self):
         self._keys_pressed.clear()
         self._keys_released.clear()
+
+        self._mouse_buttons_pressed.clear()
+        self._mouse_buttons_released.clear()
 
         window = g.Game.instance().window
 
@@ -40,6 +47,16 @@ class InputManager:
             elif event.type == pygame.KEYUP:
                 self._keys_down.discard(event.key)
                 self._keys_released.add(event.key)
+            
+            # Check if mouse down
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                self._mouse_buttons_down.add(event.button)
+                self._mouse_buttons_pressed.add(event.button)
+            
+            elif event.type == pygame.MOUSEBUTTONUP:
+                self._mouse_buttons_down.discard(event.button)
+                self._mouse_buttons_released.add(event.button)
+                
     
 
     # Checks whether a key is down
@@ -53,3 +70,16 @@ class InputManager:
     # Checks whether a key has been released
     def is_key_released(self, key) -> bool:
         return key in self._keys_released
+    
+    
+    # Checks whether a mouse button is down
+    def is_key_down(self, mouse_button) -> bool:
+        return mouse_button in self._mouse_buttons_down
+
+    # Checks whether a mouse button has been pressed
+    def is_key_pressed(self, mouse_button) -> bool:
+        return mouse_button in self._mouse_buttons_pressed
+
+    # Checks whether a mouse button has been released
+    def is_key_released(self, mouse_buttons) -> bool:
+        return mouse_buttons in self.mouse_buttons_released
