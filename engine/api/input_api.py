@@ -180,46 +180,46 @@ class Mouse(Enum):
 
 def key_pressed(key: Keys):
     """Checks if a key has been pressed"""
-    Game.instance().input_manager.is_key_pressed(key.value)
+    return Game.instance().input_manager.is_key_pressed(key.value)
 
 
 def key_down(key: Keys):
     """Checks if a key is down"""
-    Game.instance().input_manager.is_key_down(key.value)
+    return Game.instance().input_manager.is_key_down(key.value)
 
 
 def key_released(key: Keys):
     """Checks is a key has been released"""
-    Game.instance().input_manager.is_key_released(key.value)
+    return Game.instance().input_manager.is_key_released(key.value)
 
 
 
 def mouse_pressed(mouse_button: Mouse):
     """Checks if a mouse button has been pressed"""
-    Game.instance().input_manager.is_mouse_pressed(mouse_button.value)
+    return Game.instance().input_manager.is_mouse_pressed(mouse_button.value)
 
 
 def mouse_down(mouse_button: Mouse):
     """Checks if a mouse button is down"""
-    Game.instance().input_manager.is_mouse_down(mouse_button.value)
+    return Game.instance().input_manager.is_mouse_down(mouse_button.value)
 
 
 def mouse_released(mouse_button: Mouse):
     """Checks if a mouse button has been released"""
-    Game.instance().input_manager.is_mouse_released(mouse_button.value)
+    return Game.instance().input_manager.is_mouse_released(mouse_button.value)
 
 
 
 def action_pressed(action: str):
     """Checks if an action has been pressed"""
-    Game.instance().system_manager.input_system.is_action_pressed(action)
+    return Game.instance().system_manager.input_system.is_action_pressed(action)
 
 
 def action_down(action: str):
     """Checks if an action is down"""
-    Game.instance().system_manager.input_system.is_action_down(action)
+    return Game.instance().system_manager.input_system.is_action_down(action)
 
 
 def action_released(action: str):
     """Checks if an action has been released"""
-    Game.instance().system_manager.input_system.is_action_released(action)
+    return Game.instance().system_manager.input_system.is_action_released(action)

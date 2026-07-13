@@ -13,17 +13,17 @@ class PlayerMovement(Script):
     def update(self, dt):
         movement = Vector2(0, 0)
 
-        if input.action_down("left"):
+        if Input.action_down("left"):
             movement.x += -1
             self.transform.rotation -= 5
-        if input.action_down("right"):
+        if Input.action_down("right"):
             movement.x += 1
             self.transform.rotation += 5
-        if input.action_down("up"):
+        if Input.action_down("up"):
             movement.y += -1
-        if input.action_down("down"):
+        if Input.action_down("down"):
             movement.y += 1
-        if input.action_pressed("reset"):
+        if Input.action_pressed("reset"):
             scene.load_current_scene()
         
         movement = movement.normalize()
