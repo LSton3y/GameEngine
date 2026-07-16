@@ -11,21 +11,19 @@ class PlayerMovement(Script):
 
     
     def update(self, dt):
-        movement = Vector2(0, 0)
-
         if Input.action_down("left"):
-            movement.x += -1
-            self.transform.rotation -= 5
+            transform.move(self.entity, -self.speed * dt, 0)
+            transform.rotate(self.entity, -5)
+
         if Input.action_down("right"):
-            movement.x += 1
-            self.transform.rotation += 5
+            transform.move(self.entity, self.speed * dt, 0)
+            transform.rotate(self.entity, 5)
+
         if Input.action_down("up"):
-            movement.y += -1
+            transform.move(self.entity, 0, -self.speed * dt)
+            
         if Input.action_down("down"):
-            movement.y += 1
+            transform.move(self.entity, 0, self.speed * dt)
+
         if Input.action_pressed("reset"):
             scene.load_current_scene()
-        
-        movement = movement.normalize()
-
-        self.transform.position += movement * self.speed * dt
